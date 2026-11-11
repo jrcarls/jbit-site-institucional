@@ -1,0 +1,188 @@
+---
+import { site } from '../../config/site';
+import { budgetRanges, includedInAll, projectTypes } from '../../data/quote';
+import Button from '../ui/Button.astro';
+import Card from '../ui/Card.astro';
+import Heading from '../ui/Heading.astro';
+import SectionIntro from '../ui/SectionIntro.astro';
+---
+
+<section class="section" id="orcamento">
+  <div class="wrap split">
+    <div>
+      <Heading>Conte sobre seu <em>projeto</em></Heading>
+      <SectionIntro>
+        Preencha o formulário e enviamos uma proposta com escopo, prazo e valor fechado em até 48
+        horas. Sem compromisso.
+      </SectionIntro>
+      <div class="includes">
+        <h3>Todo projeto inclui</h3>
+        <ul>{includedInAll.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </div>
+
+    <Card title="novo-orcamento.txt">
+      <form
+        class="form"
+        data-quote-form
+        data-endpoint={site.formEndpoint}
+        data-email={site.email}
+        action={site.formEndpoint}
+        method="post"
+      >
+        <div class="row">
+          <label class="field">
+            <span>Nome *</span>
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label class="field">
+            <span>E-mail *</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+        </div>
+        <div class="row">
+          <label class="field">
+            <span>Empresa</span>
+            <input name="company" type="text" autocomplete="organization" />
+          </label>
+          <label class="field">
+            <span>Tipo de projeto *</span>
+            <select name="type" required>
+              {projectTypes.map((t) => <option>{t}</option>)}
+            </select>
+          </label>
+        </div>
+        <label class="field">
+          <span>Orçamento estimado</span>
+          <select name="budget">
+            {budgetRanges.map((b) => <option>{b}</option>)}
+          </select>
+        </label>
+        <label class="field">
+          <span>Mensagem *</span>
+          <textarea name="message" rows="5" required placeholder="O que você quer construir? Tem prazo?"
+          ></textarea>
+        </label>
+        <!-- Anti-spam: campo invisível que pessoas não preenchem -->
+        <input class="trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="actions">
+          <p class="status" data-form-status role="status" aria-live="polite"></p>
+          <Button variant="primary" type="submit">Enviar ▶</Button>
+        </div>
+      </form>
+    </Card>
+  </div>
+</section>
+
+<script>
+  import { initQuoteForms } from '../../scripts/quoteForm';
+  initQuoteForms();
+</script>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .includes {
+    display: grid;
+    gap: 10px;
+    padding: 16px 18px;
+    border: 2px dashed var(--px-border);
+  }
+  .includes h3 {
+    margin: 0;
+    font: 600 17px/1.2 var(--px-font-pixel);
+    color: var(--px-accent);
+  }
+  .includes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+  }
+  .includes li::before {
+    content: '✓ ';
+    color: var(--px-accent);
+    font-weight: 700;
+  }
+  .form {
+    display: grid;
+    gap: 16px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+  .field span {
+    font: 600 14px var(--px-font-pixel);
+    color: var(--px-muted);
+  }
+  input,
+  select,
+  textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 0;
+    background: var(--px-bg);
+    color: var(--px-text);
+    font: 14px/1.5 var(--px-font-body);
+    box-shadow: inset 0 0 0 2px var(--px-border);
+  }
+  textarea {
+    resize: vertical;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 2px var(--px-accent),
+      3px 3px 0 var(--px-shadow);
+  }
+  .trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .status {
+    margin: 0;
+    flex: 1 1 200px;
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--px-accent);
+  }
+  .status[data-status='error'] {
+    color: var(--px-orange);
+  }
+  @media (max-width: 900px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

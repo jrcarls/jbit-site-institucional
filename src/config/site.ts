@@ -14,6 +14,8 @@ export const site: SiteConfig = {
   locale: 'pt-BR',
   email: 'contato@jbit.com.br',
   whatsapp: 'https://wa.me/5500000000000',
+  // Ex.: 'https://formspree.io/f/xxxxxxx'. Deixe vazio para usar o e-mail.
+  formEndpoint: undefined,
   announcement: {
     text: 'Agenda aberta para novos projetos em',
     highlight: '2027',
@@ -22,7 +24,7 @@ export const site: SiteConfig = {
     { label: 'Serviços', href: '#servicos' },
     { label: 'Quem somos', href: '#sobre' },
     { label: 'Como trabalhamos', href: '#processo' },
-    { label: 'Modelos', href: '#modelos' },
+    { label: 'Orçamento', href: '#orcamento' },
     { label: 'Dúvidas', href: '#duvidas' },
   ],
   social: [
