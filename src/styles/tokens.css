@@ -19,8 +19,12 @@
   --px-card-top: #261b3d;
   --px-dot: #2a2238;
   --px-grad: #1d1828;
-  --px-title-shadow: 3px 3px 0 var(--px-shadow), 5px 5px 0 #c2417f;
-  --px-logo-b: var(--px-lime);
+  --px-title-shadow: 3px 3px 0 var(--px-shadow), 5px 5px 0 var(--px-orange-dark);
+  /* Cor da marca (detalhes de identidade: faixas, hover, logo) */
+  --px-brand: var(--px-orange);
+  /* Cores do logo (seguem o tema) */
+  --px-logo-a: var(--px-accent);
+  --px-logo-b: var(--px-brand);
 
   /* Fixas (não mudam com o tema) */
   --px-ink: #211735;
@@ -60,7 +64,6 @@
     --px-sky: #155e86;
     --px-orange: #a3420f;
     --px-pink: #a3245f;
-    --px-logo-b: var(--px-lime-dark);
     --px-title-shadow: 2px 2px 0 #dccfea;
     color-scheme: light;
   }
@@ -82,7 +85,6 @@
   --px-sky: #155e86;
   --px-orange: #a3420f;
   --px-pink: #a3245f;
-  --px-logo-b: var(--px-lime-dark);
   --px-title-shadow: 2px 2px 0 #dccfea;
   color-scheme: light;
 }

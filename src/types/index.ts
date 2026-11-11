@@ -13,7 +13,7 @@ export interface SocialLink {
 
 export interface SiteConfig {
   name: string;
-  /** Logo em duas partes para o efeito bicolor (ex.: "J" + "BIT"). */
+  /** Logo em duas partes para o efeito bicolor (ex.: "J" + "bit"). */
   logo: { first: string; second: string };
   title: string;
   description: string;

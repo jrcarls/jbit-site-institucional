@@ -5,11 +5,11 @@ import type { SiteConfig } from '../types';
  * todos os componentes leem deste arquivo.
  */
 export const site: SiteConfig = {
-  name: 'JBIT',
-  logo: { first: 'J', second: 'BIT' },
-  title: 'JBIT — Software sob medida',
+  name: 'Jbit',
+  logo: { first: 'J', second: 'bit' },
+  title: 'Jbit — Software sob medida',
   description:
-    'A JBIT desenvolve sites, sistemas web, aplicativos e automações sob medida para empresas que querem crescer com tecnologia.',
+    'A Jbit desenvolve sites, sistemas web, aplicativos e automações sob medida para empresas que querem crescer com tecnologia.',
   url: 'https://jbit.dev.br',
   locale: 'pt-BR',
   email: 'contato@jbit.dev.br',
@@ -30,7 +30,7 @@ export const site: SiteConfig = {
     { label: 'Instagram', href: 'https://www.instagram.com/' },
   ],
   legal: {
-    company: 'JBIT Desenvolvimento de Software LTDA',
+    company: 'Jbit Desenvolvimento de Software LTDA',
     document: 'CNPJ 00.000.000/0001-00',
     address: 'São Paulo, SP',
   },
