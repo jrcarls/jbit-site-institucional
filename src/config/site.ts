@@ -13,7 +13,7 @@ export const site: SiteConfig = {
   url: 'https://jbit.dev.br',
   locale: 'pt-BR',
   email: 'contato@jbit.dev.br',
-  whatsapp: 'https://wa.me/5500000000000',
+  whatsapp: 'https://wa.me/5571991516655',
   // Ex.: 'https://formspree.io/f/xxxxxxx'. Deixe vazio para usar o e-mail.
   formEndpoint: undefined,
   // Faixa de aviso no topo. Ex.: { text: 'Agenda aberta para', highlight: '2027' }
@@ -31,7 +31,7 @@ export const site: SiteConfig = {
   ],
   legal: {
     company: 'Jbit Desenvolvimento de Software LTDA',
-    document: 'CNPJ 00.000.000/0001-00',
+    document: 'CNPJ 68.758.411/0001-84',
     address: 'São Paulo, SP',
   },
 };
