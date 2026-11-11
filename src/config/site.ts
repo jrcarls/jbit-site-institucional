@@ -10,9 +10,9 @@ export const site: SiteConfig = {
   title: 'JBIT — Software sob medida',
   description:
     'A JBIT desenvolve sites, sistemas web, aplicativos e automações sob medida para empresas que querem crescer com tecnologia.',
-  url: 'https://jbit.com.br',
+  url: 'https://jbit.dev.br',
   locale: 'pt-BR',
-  email: 'contato@jbit.com.br',
+  email: 'contato@jbit.dev.br',
   whatsapp: 'https://wa.me/5500000000000',
   // Ex.: 'https://formspree.io/f/xxxxxxx'. Deixe vazio para usar o e-mail.
   formEndpoint: undefined,
