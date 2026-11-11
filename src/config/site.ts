@@ -20,6 +20,7 @@ export const site: SiteConfig = {
   },
   nav: [
     { label: 'Serviços', href: '#servicos' },
+    { label: 'Quem somos', href: '#sobre' },
     { label: 'Como trabalhamos', href: '#processo' },
     { label: 'Modelos', href: '#modelos' },
     { label: 'Dúvidas', href: '#duvidas' },

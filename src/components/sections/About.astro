@@ -1,0 +1,123 @@
+---
+import { aboutFacts, aboutParagraphs } from '../../data/about';
+import { reasons } from '../../data/highlights';
+import { site } from '../../config/site';
+import { accentVar } from '../../utils/colors';
+import Card from '../ui/Card.astro';
+import Heading from '../ui/Heading.astro';
+---
+
+<section class="section" id="sobre">
+  <div class="wrap split">
+    <div>
+      <Heading>Quem <em>somos</em></Heading>
+      <div class="text">
+        {aboutParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <Card title={`Ficha da ${site.name}`} class="facts">
+        <dl>
+          {
+            aboutFacts.map((f) => (
+              <div>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </Card>
+    </div>
+
+    <div>
+      <Heading level={3}>Por que a {site.name}</Heading>
+      <ul class="feats">
+        {
+          reasons.map((r) => (
+            <li style={`--c:${accentVar(r.color)}`}>
+              <div>
+                <strong>{r.title}</strong>
+                <span>{r.description}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .text {
+    margin-bottom: 28px;
+    max-width: 62ch;
+  }
+  .text p {
+    margin: 0 0 14px;
+    color: var(--px-muted);
+    font-size: 15px;
+  }
+  dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 24px;
+    margin: 0;
+  }
+  dt {
+    font: 600 13px var(--px-font-pixel);
+    color: var(--px-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  dd {
+    margin: 2px 0 0;
+    font: 600 20px/1.2 var(--px-font-pixel);
+    color: var(--px-accent);
+  }
+  dl div:nth-child(2) dd {
+    color: var(--px-pink);
+  }
+  dl div:nth-child(3) dd {
+    color: var(--px-orange);
+  }
+  dl div:nth-child(4) dd {
+    color: var(--px-sky);
+  }
+  .feats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 18px;
+  }
+  .feats li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .feats li::before {
+    content: '';
+    flex: 0 0 10px;
+    height: 10px;
+    margin-top: 7px;
+    background: var(--c);
+    box-shadow: 3px 3px 0 var(--px-shadow);
+  }
+  .feats strong {
+    font: 600 17px/1.3 var(--px-font-pixel);
+    display: block;
+  }
+  .feats span {
+    color: var(--px-muted);
+  }
+  @media (max-width: 900px) {
+    .split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
