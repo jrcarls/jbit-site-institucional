@@ -10,11 +10,11 @@ export const projectTypes: string[] = [
 export const budgetRanges: string[] = [
   'Ainda não sei',
   'Até R$ 10 mil',
-  'R$ 10 mil – R$ 50 mil',
+  'De R$ 10 mil a R$ 50 mil',
   'Acima de R$ 50 mil',
 ];
 
-/** "Todo projeto inclui" — exibido ao lado do formulário. */
+/** "Todo projeto inclui": exibido ao lado do formulário. */
 export const includedInAll: string[] = [
   'Código no seu nome',
   'Contrato e NDA',

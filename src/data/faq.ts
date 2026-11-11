@@ -11,7 +11,7 @@ export const faq: FaqItem[] = [
   {
     question: 'Como funciona o trabalho com IA?',
     answer:
-      'Agentes de IA escrevem, testam e documentam código em paralelo, sob supervisão de um desenvolvedor que revisa cada entrega antes de chegar até você. O resultado é mais velocidade com o mesmo cuidado — e o código final é seu, como em qualquer projeto.',
+      'Agentes de IA escrevem, testam e documentam código em paralelo, sob supervisão de um desenvolvedor que revisa cada entrega antes de chegar até você. O resultado é mais velocidade com o mesmo cuidado. E o código final é seu, como em qualquer projeto.',
   },
   { question: 'O código fica com quem?', answer: 'Com você. Repositório, domínio e servidores ficam no nome da sua empresa desde o início.' },
   { question: 'Vocês dão suporte depois da entrega?', answer: 'Sim. Todo projeto tem 30 dias de garantia, e oferecemos planos mensais de manutenção e evolução.' },

@@ -1,6 +1,6 @@
 import type { Highlight } from '../types';
 
-/** "Por que a Jbit" — lista da seção Quem somos. */
+/** "Por que a Jbit": lista da seção Quem somos. */
 export const reasons: Highlight[] = [
   { title: 'Entregas toda semana', description: 'Você acompanha o produto evoluindo, sem esperar meses por uma versão.', color: 'accent' },
   { title: 'Fala direto com quem desenvolve', description: 'Sem intermediários, sem telefone sem fio.', color: 'pink' },

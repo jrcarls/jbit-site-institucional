@@ -1,5 +1,5 @@
 /*
- * Design tokens — fonte única de cores, fontes e medidas.
+ * Design tokens: fonte única de cores, fontes e medidas.
  * Dark-first; tema claro pelo sistema (prefers-color-scheme) ou forçado com
  * data-theme="light" | "dark" no <html> (ver ThemeToggle).
  */

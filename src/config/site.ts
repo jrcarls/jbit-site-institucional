@@ -1,13 +1,13 @@
 import type { SiteConfig } from '../types';
 
 /**
- * Configuração global da empresa. Altere aqui nome, contatos e navegação —
+ * Configuração global da empresa. Altere aqui nome, contatos e navegação;
  * todos os componentes leem deste arquivo.
  */
 export const site: SiteConfig = {
   name: 'Jbit',
   logo: { first: 'J', second: 'bit' },
-  title: 'Jbit — Software sob medida',
+  title: 'Jbit | Software sob medida',
   description:
     'A Jbit desenvolve sites, sistemas web, aplicativos e automações sob medida para empresas que querem crescer com tecnologia.',
   url: 'https://jbit.dev.br',

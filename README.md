@@ -1,4 +1,4 @@
-# Jbit — site institucional
+# Jbit: site institucional
 
 Site em [Astro](https://astro.build) com visual pixel art (inspirado no design system do habblaude.com):
 dark-first com tema claro, cantos "em degrau" via `box-shadow`, sombras duras, Pixelify Sans nos títulos e Verdana no texto.
@@ -16,7 +16,7 @@ dark-first com tema claro, cantos "em degrau" via `box-shadow`, sombras duras, P
 ```text
 src/
 ├── config/site.ts          # Dados da empresa: nome, contatos, menu, redes, aviso do topo
-├── data/                   # Conteúdo de cada seção (serviços, FAQ, processo...) — edite aqui
+├── data/                   # Conteúdo de cada seção (serviços, FAQ, processo...): edite aqui
 ├── types/index.ts          # Tipos/contratos do conteúdo
 ├── styles/
 │   ├── tokens.css          # Design tokens (cores, fontes, medidas, temas claro/escuro)
