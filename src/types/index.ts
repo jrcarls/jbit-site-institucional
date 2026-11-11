@@ -47,16 +47,6 @@ export interface Highlight {
   color: AccentColor;
 }
 
-export interface Delivery {
-  date: string;
-  team: string;
-  project: string;
-  /** Letra exibida no selo do projeto. */
-  initial: string;
-  color: AccentColor;
-  summary: string;
-}
-
 export interface ProcessStep {
   label: string;
   title: string;
@@ -85,4 +75,9 @@ export interface TerminalLine {
   kind: 'command' | 'ok' | 'info';
   text: string;
   color?: AccentColor;
+}
+
+export interface AboutFact {
+  label: string;
+  value: string;
 }
