@@ -5,5 +5,5 @@ export const stats: Stat[] = [
   { value: '7', label: 'projetos desenvolvidos', color: 'accent' },
   { value: '100%', label: 'remoto', color: 'pink' },
   { value: '24h', label: 'tempo de resposta', color: 'orange' },
-  { value: '30 dias', label: 'de garantia', color: 'sky' },
+  { value: '30', label: 'dias de garantia', color: 'sky' },
 ];
