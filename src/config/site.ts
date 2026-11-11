@@ -30,7 +30,7 @@ export const site: SiteConfig = {
     { label: 'Instagram', href: 'https://www.instagram.com/' },
   ],
   legal: {
-    company: 'Jbit Desenvolvimento de Software LTDA',
+    company: 'JBIT Desenvolvimento de Software LTDA',
     document: 'CNPJ 00.000.000/0001-00',
     address: 'São Paulo, SP',
   },
