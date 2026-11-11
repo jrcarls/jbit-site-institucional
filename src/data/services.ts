@@ -16,8 +16,9 @@ export const services: Service[] = [
   {
     tag: '03 · Mobile',
     title: 'Aplicativos',
-    description: 'Apps iOS e Android com uma única base de código.',
-    items: ['App para clientes', 'App interno', 'Publicação nas lojas'],
+    description:
+      'Apps com tecnologia web (Ionic): um só código para iOS, Android e navegador, com entrega mais rápida.',
+    items: ['App para clientes', 'App interno', 'Publicação na App Store e Google Play'],
   },
   {
     tag: '04 · IA',

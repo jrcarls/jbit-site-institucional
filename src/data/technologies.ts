@@ -3,6 +3,7 @@ export const technologies: string[] = [
   'TypeScript',
   'React',
   'Astro',
+  'Ionic',
   'Node.js',
   'Python',
   'PostgreSQL',
