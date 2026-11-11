@@ -5,7 +5,8 @@ import { accentVar } from '../../utils/colors';
 import Badge from '../ui/Badge.astro';
 import Button from '../ui/Button.astro';
 import Heading from '../ui/Heading.astro';
-import PixelStudio from '../illustrations/PixelStudio.astro';
+import CodeWindow from '../ui/CodeWindow.astro';
+import { terminal } from '../../data/terminal';
 ---
 
 <section class="hero">
@@ -30,20 +31,18 @@ import PixelStudio from '../illustrations/PixelStudio.astro';
         </div>
       </div>
 
-      <div class="hud" role="group" aria-label="Números da empresa">
-        {
-          stats.map((s) => (
-            <div class="hud__cell" style={`--c:${accentVar(s.color)}`}>
-              <div class="hud__n">{s.value}</div>
-              <div class="hud__l">{s.label}</div>
-            </div>
-          ))
-        }
-      </div>
+      <CodeWindow file={terminal.file} lines={terminal.lines} />
     </div>
 
-    <div class="px-frame stage">
-      <PixelStudio label="Estúdio em pixel art: duas mesas com monitores exibindo código, pessoas trabalhando, quadro de tarefas e um rack de servidores com luzes piscando." />
+    <div class="hud" role="group" aria-label="Números da empresa">
+      {
+        stats.map((s) => (
+          <div class="hud__cell" style={`--c:${accentVar(s.color)}`}>
+            <div class="hud__n">{s.value}</div>
+            <div class="hud__l">{s.label}</div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -55,9 +54,9 @@ import PixelStudio from '../illustrations/PixelStudio.astro';
   .hero__head {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 40px;
-    align-items: end;
-    margin-bottom: 36px;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 48px;
   }
   .hero :global(.kicker) {
     margin-bottom: 18px;
@@ -98,7 +97,7 @@ import PixelStudio from '../illustrations/PixelStudio.astro';
   }
   .hud {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
   }
   .hud__cell {
@@ -115,15 +114,12 @@ import PixelStudio from '../illustrations/PixelStudio.astro';
     font-size: 12px;
     color: var(--px-muted);
   }
-  .stage {
-    --o: #755196;
-    --s: #100d17;
-    background: var(--px-ink);
-    overflow: hidden;
-  }
   @media (max-width: 900px) {
     .hero__head {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .hud {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

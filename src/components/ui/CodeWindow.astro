@@ -1,0 +1,94 @@
+---
+import type { TerminalLine } from '../../types';
+import { accentVar } from '../../utils/colors';
+
+/** Janela pixelada estilo terminal, estática. */
+type Props = { file: string; lines: TerminalLine[]; class?: string };
+const { file, lines, class: className } = Astro.props;
+
+const prefix: Record<TerminalLine['kind'], string> = { command: '$', ok: '✓', info: '→' };
+---
+
+<figure class:list={['px-frame', 'window', className]}>
+  <figcaption class="window__bar">
+    <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    {file}
+  </figcaption>
+  <pre class="window__body"><code>{
+    lines.map((l) => (
+      <span class:list={['line', `line--${l.kind}`]} style={l.color && `--c:${accentVar(l.color)}`}><span class="line__prefix" aria-hidden="true">{prefix[l.kind]}</span> {l.text}
+</span>
+    ))
+  }</code></pre>
+</figure>
+
+<style>
+  .window {
+    --o: #755196;
+    --s: #100d17;
+    /* A janela é sempre escura: fixa as cores de destaque da paleta escura. */
+    --px-accent: #c8ff32;
+    --px-pink: #ff5cad;
+    --px-orange: #ff814a;
+    --px-sky: #6fd3ff;
+    background: var(--px-ink);
+    color: #f7f8f4;
+  }
+  .window__bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #332346;
+    border-bottom: var(--px-unit) solid #53436b;
+    box-shadow: inset 0 3px 0 #ff5cad;
+    font: 600 16px/1.3 var(--px-font-pixel);
+  }
+  .window__dots {
+    display: inline-flex;
+    gap: 6px;
+  }
+  .window__dots i {
+    width: 10px;
+    height: 10px;
+    background: #ff5cad;
+  }
+  .window__dots i:nth-child(2) {
+    background: #ff814a;
+  }
+  .window__dots i:nth-child(3) {
+    background: #c8ff32;
+  }
+  .window__body {
+    margin: 0;
+    padding: 20px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font: 14px/1.9 var(--px-font-mono);
+  }
+  @media (max-width: 560px) {
+    .window__body {
+      padding: 16px;
+      font-size: 13px;
+    }
+  }
+  .window__body code {
+    font: inherit;
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+  .line__prefix {
+    color: var(--c, #c8ff32);
+    font-weight: bold;
+  }
+  .line--command {
+    color: #f7f8f4;
+  }
+  .line--ok {
+    color: #bdb2ce;
+  }
+  .line--info {
+    color: #6fd3ff;
+  }
+</style>
