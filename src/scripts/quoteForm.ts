@@ -12,7 +12,7 @@ const FIELDS: Record<string, string> = {
 };
 
 function buildMailto(to: string, data: FormData): string {
-  const subject = `Orçamento: ${data.get('type') ?? 'novo projeto'} — ${data.get('name') ?? ''}`;
+  const subject = `Orçamento: ${data.get('type') ?? 'novo projeto'} (${data.get('name') ?? ''})`;
   const body = Object.entries(FIELDS)
     .map(([key, label]) => `${label}: ${String(data.get(key) ?? '').trim() || '-'}`)
     .join('\n');
