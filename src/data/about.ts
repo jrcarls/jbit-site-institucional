@@ -8,7 +8,7 @@ export const aboutParagraphs: string[] = [
 
 export const aboutFacts: AboutFact[] = [
   { label: 'Fundação', value: '2020' },
-  { label: 'Sede', value: 'Sua cidade, UF' },
+  { label: 'Sede', value: 'São Paulo, SP' },
   { label: 'Time', value: '8 pessoas' },
-  { label: 'Atuação', value: 'Brasil e exterior' },
+  { label: 'Atuação', value: '100% remoto · Brasil e exterior' },
 ];
