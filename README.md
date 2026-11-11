@@ -24,10 +24,10 @@ src/
 ├── utils/                  # Helpers puros (cores de destaque, gerador de pixel art)
 ├── scripts/theme.ts        # Lógica do botão de tema
 ├── components/
-│   ├── ui/                 # Primitivas reutilizáveis: Button, Badge, Card, Heading, Logo...
+│   ├── ui/                 # Primitivas reutilizáveis: Button, Badge, Card, CodeWindow, Heading, Logo...
 │   ├── layout/             # Header, Footer, AnnouncementBar
 │   ├── sections/           # Uma seção da página por arquivo (Hero, Services, Faq...)
-│   └── illustrations/      # Pixel art em SVG gerado por código (logo e cena do hero)
+│   └── illustrations/      # Pixel art em SVG gerado por código (logo)
 ├── layouts/BaseLayout.astro# <head>, SEO, fontes, tema
 └── pages/index.astro       # Monta a página compondo as seções
 ```

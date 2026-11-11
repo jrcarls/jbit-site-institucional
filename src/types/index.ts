@@ -79,3 +79,10 @@ export interface FaqItem {
   question: string;
   answer: string;
 }
+
+export interface TerminalLine {
+  /** `command` = linha digitada ($), `ok` = concluído (✓), `info` = observação (→). */
+  kind: 'command' | 'ok' | 'info';
+  text: string;
+  color?: AccentColor;
+}
