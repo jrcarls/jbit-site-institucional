@@ -2,25 +2,43 @@
 import type { TerminalLine } from '../../types';
 import { accentVar } from '../../utils/colors';
 
-/** Janela pixelada estilo terminal, estática. */
-type Props = { file: string; lines: TerminalLine[]; class?: string };
-const { file, lines, class: className } = Astro.props;
+/**
+ * Janela pixelada estilo terminal. Com `animate`, o comando é "digitado" e as
+ * linhas aparecem uma a uma ao carregar (uma vez só; respeita reduzir movimento).
+ */
+type Props = { file: string; lines: TerminalLine[]; animate?: boolean; class?: string };
+const { file, lines, animate = false, class: className } = Astro.props;
 
 const prefix: Record<TerminalLine['kind'], string> = { command: '$', ok: '✓', info: '→' };
 ---
 
-<figure class:list={['px-frame', 'window', className]}>
+<figure class:list={['px-frame', 'window', className]} data-terminal={animate ? '' : undefined}>
   <figcaption class="window__bar">
     <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
     {file}
   </figcaption>
   <pre class="window__body"><code>{
     lines.map((l) => (
-      <span class:list={['line', `line--${l.kind}`]} style={l.color && `--c:${accentVar(l.color)}`}><span class="line__prefix" aria-hidden="true">{prefix[l.kind]}</span> {l.text}
+      <span class:list={['line', `line--${l.kind}`]} style={l.color && `--c:${accentVar(l.color)}`}><span class="line__prefix" aria-hidden="true">{prefix[l.kind]}</span> <span class="line__text">{l.text}</span>
 </span>
     ))
   }</code></pre>
 </figure>
+{
+  animate && (
+    <>
+      {/* Esconde as linhas antes da primeira pintura (evita "piscar"). Sem JS, tudo aparece normal. */}
+      <script is:inline>
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
+          document.querySelectorAll('[data-terminal]').forEach((el) => el.classList.add('is-pending'));
+      </script>
+      <script>
+        import { playTerminals } from '../../scripts/terminal';
+        playTerminals();
+      </script>
+    </>
+  )
+}
 
 <style>
   .window {
@@ -77,6 +95,21 @@ const prefix: Record<TerminalLine['kind'], string> = { command: '$', ok: '✓', 
     background: none;
     padding: 0;
     color: inherit;
+  }
+  /* Estados da animação */
+  .window.is-pending .line {
+    visibility: hidden;
+  }
+  .window .line.is-shown {
+    visibility: visible;
+  }
+  .window :global(.caret) {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: #c8ff32;
   }
   .line__prefix {
     color: var(--c, #c8ff32);
