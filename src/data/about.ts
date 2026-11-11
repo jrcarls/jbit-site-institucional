@@ -1,14 +1,13 @@
 import type { AboutFact } from '../types';
 
-// TODO: substitua pelo texto e dados reais da empresa.
 export const aboutParagraphs: string[] = [
-  'A JBIT nasceu para ser o time de tecnologia de empresas que não querem (ou ainda não podem) montar um time interno. Unimos desenvolvimento, design e estratégia para transformar ideias em produtos que funcionam de verdade.',
-  'Trabalhamos perto de cada cliente, com entregas pequenas e frequentes, conversa direta e transparência em cada etapa. Nosso objetivo é simples: que a tecnologia deixe de ser um problema e passe a ser uma vantagem para o seu negócio.',
+  'A JBIT nasceu para ser o parceiro de tecnologia de empresas que não querem (ou ainda não podem) montar um time interno. Por trás de cada projeto está o fundador, um desenvolvedor que acompanha tudo do diagnóstico à entrega.',
+  'O diferencial está no jeito de trabalhar: agentes de IA escrevem, testam e documentam código em paralelo, sempre sob supervisão e revisão humana. Isso multiplica a capacidade de entrega sem perder o cuidado de quem conhece o seu negócio — e sem intermediários entre você e quem desenvolve.',
 ];
 
 export const aboutFacts: AboutFact[] = [
   { label: 'Fundação', value: '2026' },
   { label: 'Sede', value: 'São Paulo, SP' },
-  { label: 'Time', value: '8 pessoas' },
+  { label: 'Time', value: 'Fundador + agentes de IA' },
   { label: 'Atuação', value: '100% remoto · Brasil e exterior' },
 ];

@@ -3,7 +3,7 @@ import type { Highlight } from '../types';
 /** "Por que a JBIT" — lista ao lado do registro de entregas. */
 export const reasons: Highlight[] = [
   { title: 'Entregas toda semana', description: 'Você acompanha o produto evoluindo, sem esperar meses por uma versão.', color: 'accent' },
-  { title: 'Um time, um contato', description: 'Fala direto com quem desenvolve. Sem telefone sem fio.', color: 'pink' },
+  { title: 'Fala direto com quem desenvolve', description: 'Sem intermediários, sem telefone sem fio.', color: 'pink' },
   { title: 'Código é seu', description: 'Repositório, servidores e domínio ficam no seu nome desde o primeiro dia.', color: 'orange' },
   { title: 'Suporte depois do lançamento', description: 'Monitoramos, corrigimos e evoluímos o que foi entregue.', color: 'sky' },
 ];
