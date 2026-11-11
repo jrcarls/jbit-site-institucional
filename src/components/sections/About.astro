@@ -1,6 +1,6 @@
 ---
 import { aboutFacts, aboutParagraphs } from '../../data/about';
-import { reasons } from '../../data/highlights';
+import { differentials, reasons } from '../../data/highlights';
 import { site } from '../../config/site';
 import { accentVar } from '../../utils/colors';
 import Card from '../ui/Card.astro';
@@ -42,6 +42,20 @@ import Heading from '../ui/Heading.astro';
           ))
         }
       </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h3 class="diff__title">Feito para durar</h3>
+    <div class="grid-4">
+      {
+        differentials.map((d) => (
+          <div class="diff" style={`--c:${accentVar(d.color)}`}>
+            <strong>{d.title}</strong>
+            <p>{d.description}</p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -114,6 +128,27 @@ import Heading from '../ui/Heading.astro';
   }
   .feats span {
     color: var(--px-muted);
+  }
+  .diff__title {
+    margin: 56px 0 18px;
+    font: 600 20px/1.2 var(--px-font-pixel);
+    color: var(--px-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .diff {
+    border-top: 4px solid var(--c);
+    padding-top: 12px;
+  }
+  .diff strong {
+    display: block;
+    font: 600 17px/1.3 var(--px-font-pixel);
+    margin-bottom: 4px;
+  }
+  .diff p {
+    margin: 0;
+    color: var(--px-muted);
+    font-size: 13px;
   }
   @media (max-width: 900px) {
     .split {

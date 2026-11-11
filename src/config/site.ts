@@ -20,9 +20,8 @@ export const site: SiteConfig = {
   announcement: undefined,
   nav: [
     { label: 'Serviços', href: '#servicos' },
-    { label: 'Quem somos', href: '#sobre' },
     { label: 'Como trabalhamos', href: '#processo' },
-    { label: 'Orçamento', href: '#orcamento' },
+    { label: 'Quem somos', href: '#sobre' },
     { label: 'Dúvidas', href: '#duvidas' },
   ],
   social: [
