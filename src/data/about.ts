@@ -1,7 +1,7 @@
 import type { AboutFact } from '../types';
 
 export const aboutParagraphs: string[] = [
-  'A JBIT nasceu para ser o parceiro de tecnologia de empresas que não querem (ou ainda não podem) montar um time interno. Por trás de cada projeto está o fundador, um desenvolvedor que acompanha tudo do diagnóstico à entrega.',
+  'A Jbit nasceu para ser o parceiro de tecnologia de empresas que não querem (ou ainda não podem) montar um time interno. Por trás de cada projeto está o fundador, um desenvolvedor que acompanha tudo do diagnóstico à entrega.',
   'O diferencial está no jeito de trabalhar: agentes de IA escrevem, testam e documentam código em paralelo, sempre sob supervisão e revisão humana. Isso multiplica a capacidade de entrega sem perder o cuidado de quem conhece o seu negócio — e sem intermediários entre você e quem desenvolve.',
 ];
 

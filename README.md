@@ -1,4 +1,4 @@
-# JBIT — site institucional
+# Jbit — site institucional
 
 Site em [Astro](https://astro.build) com visual pixel art (inspirado no design system do habblaude.com):
 dark-first com tema claro, cantos "em degrau" via `box-shadow`, sombras duras, Pixelify Sans nos títulos e Verdana no texto.
