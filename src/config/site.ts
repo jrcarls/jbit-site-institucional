@@ -16,10 +16,8 @@ export const site: SiteConfig = {
   whatsapp: 'https://wa.me/5500000000000',
   // Ex.: 'https://formspree.io/f/xxxxxxx'. Deixe vazio para usar o e-mail.
   formEndpoint: undefined,
-  announcement: {
-    text: 'Agenda aberta para novos projetos em',
-    highlight: '2027',
-  },
+  // Faixa de aviso no topo. Ex.: { text: 'Agenda aberta para', highlight: '2027' }
+  announcement: undefined,
   nav: [
     { label: 'Serviços', href: '#servicos' },
     { label: 'Quem somos', href: '#sobre' },
