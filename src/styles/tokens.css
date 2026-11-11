@@ -1,0 +1,86 @@
+/*
+ * Design tokens — fonte única de cores, fontes e medidas.
+ * Dark-first; tema claro pelo sistema (prefers-color-scheme) ou forçado com
+ * data-theme="light" | "dark" no <html> (ver ThemeToggle).
+ */
+:root {
+  --px-bg: #181621;
+  --px-surface: #211735;
+  --px-text: #f7f8f4;
+  --px-muted: #bdb2ce;
+  --px-border: #53436b;
+  --px-soft: #332346;
+  --px-accent: #c8ff32;
+  --px-pink: #ff5cad;
+  --px-orange: #ff814a;
+  --px-sky: #6fd3ff;
+  --px-success: #303d25;
+  --px-shadow: #100c18;
+  --px-card-top: #261b3d;
+  --px-dot: #2a2238;
+  --px-grad: #1d1828;
+  --px-title-shadow: #c2417f;
+  --px-logo-b: var(--px-lime);
+
+  /* Fixas (não mudam com o tema) */
+  --px-ink: #211735;
+  --px-lime: #c8ff32;
+  --px-lime-dark: #5e7f1e;
+  --px-lime-darker: #3f5515;
+  --px-orange-dark: #a84a1f;
+
+  /* Medidas */
+  --px-unit: 2px;
+  --px-wrap: 1120px;
+  --px-gutter: 20px;
+  --px-section: 64px;
+
+  /* Tipografia */
+  --px-font-pixel: 'Pixelify Sans', 'Courier New', monospace;
+  --px-font-body: Verdana, Arial, sans-serif;
+  --px-font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --px-bg: #f7f8f4;
+    --px-surface: #fff;
+    --px-text: #211735;
+    --px-muted: #6e627d;
+    --px-border: #c6b8d7;
+    --px-soft: #fadded;
+    --px-accent: #87315f;
+    --px-success: #e4f5be;
+    --px-shadow: #21173540;
+    --px-card-top: #f6f0fb;
+    --px-dot: #e6def0;
+    --px-grad: #f7f8f4;
+    --px-sky: #1f6f96;
+    --px-orange: #b4501f;
+    --px-pink: #c2417f;
+    --px-logo-b: var(--px-lime-dark);
+    color-scheme: light;
+  }
+}
+
+:root[data-theme='light'] {
+  --px-bg: #f7f8f4;
+  --px-surface: #fff;
+  --px-text: #211735;
+  --px-muted: #6e627d;
+  --px-border: #c6b8d7;
+  --px-soft: #fadded;
+  --px-accent: #87315f;
+  --px-success: #e4f5be;
+  --px-shadow: #21173540;
+  --px-card-top: #f6f0fb;
+  --px-dot: #e6def0;
+  --px-grad: #f7f8f4;
+  --px-sky: #1f6f96;
+  --px-orange: #b4501f;
+  --px-pink: #c2417f;
+  --px-logo-b: var(--px-lime-dark);
+  color-scheme: light;
+}

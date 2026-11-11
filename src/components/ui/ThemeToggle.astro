@@ -1,0 +1,43 @@
+---
+/** Alterna claro/escuro; a preferência é aplicada antes da pintura no BaseLayout. */
+---
+
+<button class="toggle" type="button" data-theme-toggle aria-label="Alternar tema claro/escuro">
+  <span class="toggle__icon" aria-hidden="true"></span>
+</button>
+
+<script>
+  import { initThemeToggle } from '../../scripts/theme';
+  initThemeToggle();
+</script>
+
+<style>
+  .toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: var(--px-surface);
+    border: 0;
+    box-shadow: inset 0 0 0 2px var(--px-border);
+    cursor: pointer;
+  }
+  .toggle:hover {
+    box-shadow: inset 0 0 0 2px var(--px-pink);
+  }
+  /* Ícone pixelado: lua no escuro, sol no claro */
+  .toggle__icon {
+    width: 14px;
+    height: 14px;
+    background: var(--px-accent);
+    box-shadow: 4px -4px 0 -2px var(--px-surface);
+  }
+  :global(:root[data-theme='light']) .toggle__icon {
+    box-shadow:
+      0 -6px 0 -4px var(--px-accent),
+      0 6px 0 -4px var(--px-accent),
+      -6px 0 0 -4px var(--px-accent),
+      6px 0 0 -4px var(--px-accent);
+  }
+</style>

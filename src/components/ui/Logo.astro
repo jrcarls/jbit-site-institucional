@@ -1,0 +1,28 @@
+---
+import { site } from '../../config/site';
+import PixelMark from '../illustrations/PixelMark.astro';
+---
+
+<a class="logo" href="/" aria-label={site.name}>
+  <PixelMark size={36} />
+  <span><span class="logo__a">{site.logo.first}</span><span class="logo__b">{site.logo.second}</span></span>
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 600 28px/1 var(--px-font-pixel);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    text-shadow: 2px 2px 0 var(--px-shadow);
+    white-space: nowrap;
+  }
+  .logo__a {
+    color: var(--px-pink);
+  }
+  .logo__b {
+    color: var(--px-logo-b);
+  }
+</style>

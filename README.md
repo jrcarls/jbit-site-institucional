@@ -1,46 +1,41 @@
-# Astro Starter Kit: Basics
+# JBIT — site institucional
 
-```sh
-npm create astro@latest -- --template basics
-```
+Site em [Astro](https://astro.build) com visual pixel art (inspirado no design system do habblaude.com):
+dark-first com tema claro, cantos "em degrau" via `box-shadow`, sombras duras, Pixelify Sans nos títulos e Verdana no texto.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos
 
-## 🚀 Project Structure
+| Comando             | Ação                                  |
+| :------------------ | :------------------------------------ |
+| `npm run dev`       | Servidor local em `localhost:4321`    |
+| `npm run build`     | Gera o site estático em `./dist/`     |
+| `npm run preview`   | Pré-visualiza o build                 |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Estrutura
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── config/site.ts          # Dados da empresa: nome, contatos, menu, redes, aviso do topo
+├── data/                   # Conteúdo de cada seção (serviços, FAQ, processo...) — edite aqui
+├── types/index.ts          # Tipos/contratos do conteúdo
+├── styles/
+│   ├── tokens.css          # Design tokens (cores, fontes, medidas, temas claro/escuro)
+│   └── global.css          # Reset, utilitários (.wrap, .section, .grid-4) e moldura .px-frame
+├── utils/                  # Helpers puros (cores de destaque, gerador de pixel art)
+├── scripts/theme.ts        # Lógica do botão de tema
+├── components/
+│   ├── ui/                 # Primitivas reutilizáveis: Button, Badge, Card, Heading, Logo...
+│   ├── layout/             # Header, Footer, AnnouncementBar
+│   ├── sections/           # Uma seção da página por arquivo (Hero, Services, Faq...)
+│   └── illustrations/      # Pixel art em SVG gerado por código (logo e cena do hero)
+├── layouts/BaseLayout.astro# <head>, SEO, fontes, tema
+└── pages/index.astro       # Monta a página compondo as seções
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### Convenções
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Conteúdo separado da apresentação**: textos ficam em `src/data` e `src/config`; componentes só renderizam.
+- **Tokens centralizados**: cores sempre via `var(--px-*)`; nunca hex solto em componente (exceto paleta da pixel art).
+- **Estilos com escopo**: cada componente tem seu `<style>`; só o que é compartilhado vai em `global.css`.
+- **Cores de destaque** (`accent | pink | orange | sky`) são passadas por `--c` e convertidas com `accentVar()`.
+- Nova seção: crie em `components/sections/`, dados em `data/`, tipo em `types/` e adicione em `pages/index.astro`.

@@ -1,0 +1,32 @@
+---
+import { fromMap } from '../../utils/pixelArt';
+
+/** Marca da empresa: monitor pixelado com prompt ">_". */
+type Props = { size?: number; class?: string };
+const { size = 36, class: className } = Astro.props;
+
+const map = [
+  '.PPPPPPPPPP.',
+  'PIIIIIIIIIIP',
+  'PILIIIIIIIIP',
+  'PIILIIIIIIIP',
+  'PILIIIIIIIIP',
+  'PIIIIGGGIIIP',
+  'PIIIIIIIIIIP',
+  '.PPPPPPPPPP.',
+  '....PPPP....',
+  '...LLLLLL...',
+];
+const pixels = fromMap(map, { P: '#FF5CAD', I: '#211735', L: '#C8FF32', G: '#C8FF32' }, 0, 1);
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 12 12"
+  shape-rendering="crispEdges"
+  aria-hidden="true"
+>
+  {pixels.map((p) => <rect x={p.x} y={p.y} width={p.w} height={p.h} fill={p.fill} />)}
+</svg>

@@ -1,0 +1,47 @@
+---
+import { site } from '../../config/site';
+import Logo from '../ui/Logo.astro';
+import Button from '../ui/Button.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
+---
+
+<div class="wrap">
+  <header class="nav">
+    <Logo />
+    <nav class="nav__links" aria-label="Principal">
+      {site.nav.map((link) => <a class="nav__link" href={link.href}>{link.label}</a>)}
+      <ThemeToggle />
+      <Button href="#contato">Contato</Button>
+    </nav>
+  </header>
+</div>
+
+<style>
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 18px;
+  }
+  .nav__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    font: 600 16px var(--px-font-pixel);
+  }
+  .nav__link {
+    color: var(--px-muted);
+    text-decoration: none;
+  }
+  .nav__link:hover {
+    color: var(--px-text);
+  }
+  @media (max-width: 760px) {
+    .nav__link {
+      display: none;
+    }
+  }
+</style>

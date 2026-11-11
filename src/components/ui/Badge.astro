@@ -1,0 +1,37 @@
+---
+type Props = {
+  variant?: 'default' | 'success' | 'hot' | 'lime';
+  class?: string;
+};
+
+const { variant = 'default', class: className } = Astro.props;
+---
+
+<span class:list={['px-frame', 'badge', `badge--${variant}`, className]}><slot /></span>
+
+<style>
+  .badge {
+    --s: transparent;
+    --sh: transparent;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    padding: 4px 10px;
+    font: bold 12px/1.4 var(--px-font-body);
+    background: var(--px-surface);
+  }
+  .badge--success {
+    background: var(--px-success);
+  }
+  .badge--hot {
+    --o: var(--px-orange-dark);
+    --hl: rgba(255, 255, 255, 0.5);
+    background: #ff814a;
+    color: var(--px-ink);
+  }
+  .badge--lime {
+    --o: var(--px-lime-dark);
+    background: var(--px-lime);
+    color: var(--px-ink);
+  }
+</style>
