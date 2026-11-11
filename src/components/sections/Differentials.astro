@@ -1,0 +1,40 @@
+---
+import { differentials } from '../../data/highlights';
+import { accentVar } from '../../utils/colors';
+import Heading from '../ui/Heading.astro';
+import SectionIntro from '../ui/SectionIntro.astro';
+---
+
+<section class="section" id="diferenciais">
+  <div class="wrap">
+    <Heading>Feito para <em class="pink">durar</em></Heading>
+    <SectionIntro>Qualidade técnica que você não vê, mas sente no dia a dia.</SectionIntro>
+    <div class="grid-4">
+      {
+        differentials.map((d) => (
+          <div class="item" style={`--c:${accentVar(d.color)}`}>
+            <strong>{d.title}</strong>
+            <p>{d.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .item {
+    border-top: 4px solid var(--c);
+    padding-top: 12px;
+  }
+  strong {
+    display: block;
+    font: 600 17px/1.3 var(--px-font-pixel);
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 0;
+    color: var(--px-muted);
+    font-size: 13px;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import { processSteps } from '../../data/process';
+import { accentAt, accentVar } from '../../utils/colors';
+import Card from '../ui/Card.astro';
+import Heading from '../ui/Heading.astro';
+import SectionIntro from '../ui/SectionIntro.astro';
+---
+
+<section class="section" id="processo">
+  <div class="wrap">
+    <Heading>Da conversa ao <em class="orange">lançamento</em></Heading>
+    <SectionIntro>Um processo simples e transparente, sem surpresas no meio do caminho.</SectionIntro>
+    <ol class="grid-4">
+      {
+        processSteps.map((step, i) => (
+          <li style={`--c:${accentVar(accentAt(i))}`}>
+            <Card title={step.label} class="step">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </Card>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  li > :global(.step) {
+    height: calc(100% - 2 * var(--px-unit));
+  }
+  h3 {
+    margin: 0 0 8px;
+    font: 600 18px/1.3 var(--px-font-pixel);
+    color: var(--c);
+  }
+  p {
+    margin: 0;
+    color: var(--px-muted);
+    font-size: 13px;
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import { site } from '../../config/site';
+
+const year = new Date().getFullYear();
+const { legal } = site;
+---
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <p>© {year} {site.name}. Todos os direitos reservados.</p>
+      <p class="legal">
+        {[legal.company, legal.document, legal.address].filter(Boolean).join(' · ')}
+      </p>
+    </div>
+    <ul class="social" aria-label="Redes sociais">
+      {
+        site.social.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: 28px 40px;
+    border-top: var(--px-unit) solid var(--px-border);
+    font-size: 12px;
+    color: var(--px-muted);
+  }
+  .footer__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  p {
+    margin: 6px 0;
+    max-width: 90ch;
+  }
+  .legal {
+    opacity: 0.55;
+    font-size: 11px;
+  }
+  .social {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    font: 600 15px var(--px-font-pixel);
+  }
+  a {
+    color: var(--px-muted);
+  }
+  a:hover {
+    color: var(--px-text);
+  }
+</style>

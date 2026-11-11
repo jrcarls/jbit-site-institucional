@@ -1,0 +1,129 @@
+---
+import { stats } from '../../data/stats';
+import { technologies } from '../../data/technologies';
+import { accentVar } from '../../utils/colors';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+import Heading from '../ui/Heading.astro';
+import PixelStudio from '../illustrations/PixelStudio.astro';
+---
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__head">
+      <div>
+        <Badge variant="success" class="kicker">▶ Software sob medida para o seu negócio</Badge>
+        <Heading level={1}>Sua ideia <em>no ar</em>. Seu negócio <em class="pink">crescendo</em>.</Heading>
+        <p class="lead">
+          Somos um estúdio de tecnologia que tira projetos do papel: sites, sistemas, aplicativos e
+          automações com IA — com entregas semanais e um time que fala a sua língua.
+        </p>
+        <div class="ctas">
+          <Button variant="primary" href="#contato">Quero um orçamento</Button>
+          <Button href="#servicos">Ver serviços</Button>
+        </div>
+        <div class="tech">
+          <span class="tech__label" id="tech-label">Trabalhamos com</span>
+          <ul class="tech__list" aria-labelledby="tech-label">
+            {technologies.map((t) => <li>{t}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <div class="hud" role="group" aria-label="Números da empresa">
+        {
+          stats.map((s) => (
+            <div class="hud__cell" style={`--c:${accentVar(s.color)}`}>
+              <div class="hud__n">{s.value}</div>
+              <div class="hud__l">{s.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="px-frame stage">
+      <PixelStudio label="Estúdio em pixel art: duas mesas com monitores exibindo código, pessoas trabalhando, quadro de tarefas e um rack de servidores com luzes piscando." />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: 36px 56px;
+  }
+  .hero__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 36px;
+  }
+  .hero :global(.kicker) {
+    margin-bottom: 18px;
+  }
+  .lead {
+    font-size: 16px;
+    color: var(--px-muted);
+    max-width: 52ch;
+    margin: 18px 0 0;
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .tech {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 22px;
+    margin-top: 26px;
+  }
+  .tech__label {
+    font: 600 14px var(--px-font-pixel);
+    color: var(--px-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .tech__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: bold 13px var(--px-font-body);
+  }
+  .hud {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .hud__cell {
+    padding: 12px 14px;
+    background: var(--px-surface);
+    border-left: 4px solid var(--c);
+  }
+  .hud__n {
+    font: 600 34px/1 var(--px-font-pixel);
+    font-variant-numeric: tabular-nums;
+    color: var(--c);
+  }
+  .hud__l {
+    font-size: 12px;
+    color: var(--px-muted);
+  }
+  .stage {
+    --o: #755196;
+    --s: #100d17;
+    background: var(--px-ink);
+    overflow: hidden;
+  }
+  @media (max-width: 900px) {
+    .hero__head {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

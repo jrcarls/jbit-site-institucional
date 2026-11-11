@@ -1,0 +1,31 @@
+---
+import { site } from '../../config/site';
+const { announcement } = site;
+---
+
+{
+  announcement && (
+    <aside class="bar" aria-label="Aviso">
+      {announcement.text}
+      {announcement.highlight && <code>{announcement.highlight}</code>}
+    </aside>
+  )
+}
+
+<style>
+  .bar {
+    background: #ff814a;
+    color: var(--px-ink);
+    font: bold 13px/1.4 var(--px-font-body);
+    text-align: center;
+    padding: 8px 16px;
+    box-shadow: inset 0 -3px 0 var(--px-orange-dark);
+  }
+  code {
+    font: 600 15px/1 var(--px-font-pixel);
+    background: var(--px-ink);
+    color: var(--px-lime);
+    padding: 2px 8px;
+    margin-inline: 4px;
+  }
+</style>

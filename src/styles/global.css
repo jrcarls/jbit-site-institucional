@@ -1,0 +1,162 @@
+@import './tokens.css';
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--px-text);
+  background-color: var(--px-bg);
+  /* grade de pontos + degradê sutil no topo */
+  background-image:
+    radial-gradient(var(--px-dot) 1px, transparent 1px),
+    linear-gradient(180deg, var(--px-grad), var(--px-bg) 480px);
+  background-size: 8px 8px, 100% 100%;
+  font: 14px/1.6 var(--px-font-body);
+}
+
+img,
+svg {
+  image-rendering: pixelated;
+  max-width: 100%;
+}
+
+a {
+  color: var(--px-accent);
+}
+
+:focus-visible {
+  outline: 2px dashed var(--px-accent);
+  outline-offset: 5px;
+}
+
+code {
+  font: 13px var(--px-font-mono);
+  background: var(--px-bg);
+  padding: 1px 5px;
+  color: var(--px-accent);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Utilitários de layout ---------- */
+.wrap {
+  max-width: var(--px-wrap);
+  margin: 0 auto;
+  padding-inline: var(--px-gutter);
+}
+
+.section {
+  padding-block: var(--px-section);
+  scroll-margin-top: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.muted {
+  color: var(--px-muted);
+}
+
+/*
+ * Moldura pixelada: cantos em "degrau" via box-shadow, bevel estilo SNES e
+ * sombra dura. Os componentes customizam via variáveis:
+ *   --o  contorno · --s sombra · --hl brilho interno · --sh sombra interna
+ */
+.px-frame {
+  --o: var(--px-border);
+  --s: var(--px-shadow);
+  --hl: rgba(255, 255, 255, 0.08);
+  --sh: rgba(0, 0, 0, 0.22);
+  margin: var(--px-unit);
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    inset 0 2px 0 0 var(--hl),
+    inset 0 -3px 0 0 var(--sh),
+    0 calc(-1 * var(--px-unit)) 0 0 var(--o),
+    0 var(--px-unit) 0 0 var(--o),
+    calc(-1 * var(--px-unit)) 0 0 0 var(--o),
+    var(--px-unit) 0 0 0 var(--o),
+    0 calc(3 * var(--px-unit)) 0 0 var(--s);
+}
+
+/* Lista com marcador quadrado colorido (cor via --c) */
+.px-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.px-bullets li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.px-bullets li::before {
+  content: '';
+  flex: 0 0 6px;
+  height: 6px;
+  background: var(--c, var(--px-accent));
+  box-shadow: 2px 2px 0 var(--px-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --px-section: 48px;
+  }
+}
+
+/* Grid responsivo de 4 colunas (4 → 2 → 1) */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .grid-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

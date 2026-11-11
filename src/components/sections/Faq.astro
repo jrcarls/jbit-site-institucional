@@ -1,0 +1,58 @@
+---
+import { faq } from '../../data/faq';
+import Heading from '../ui/Heading.astro';
+---
+
+<section class="section" id="duvidas">
+  <div class="wrap">
+    <Heading><em>Dúvidas</em></Heading>
+    <div class="faq">
+      {
+        faq.map((item) => (
+          <details class="px-frame">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    display: grid;
+    gap: 14px;
+    max-width: 760px;
+  }
+  details {
+    --hl: transparent;
+    --sh: transparent;
+    background: var(--px-surface);
+  }
+  summary {
+    cursor: pointer;
+    padding: 14px 18px;
+    font: 600 17px/1.4 var(--px-font-pixel);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: '+';
+    color: var(--px-accent);
+  }
+  details[open] summary::after {
+    content: '–';
+  }
+  p {
+    margin: 0;
+    padding: 0 18px 16px;
+    color: var(--px-muted);
+    max-width: 65ch;
+  }
+</style>

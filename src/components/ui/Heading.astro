@@ -1,0 +1,54 @@
+---
+/**
+ * Título pixelado com sombra dupla. Use <em> no conteúdo para destacar
+ * palavras; adicione class="pink" ou "orange" no <em> para variar a cor.
+ */
+type Props = {
+  level?: 1 | 2 | 3;
+  size?: 'xl' | 'lg' | 'md';
+  class?: string;
+};
+
+const { level = 2, size = level === 1 ? 'xl' : level === 2 ? 'lg' : 'md', class: className } =
+  Astro.props;
+const Tag = `h${level}` as const;
+---
+
+<Tag class:list={['title', `title--${size}`, className]}><slot /></Tag>
+
+<style>
+  .title {
+    margin: 0;
+    font-weight: 600;
+    font-family: var(--px-font-pixel);
+    line-height: 1.08;
+    text-shadow:
+      3px 3px 0 var(--px-shadow),
+      5px 5px 0 var(--px-title-shadow);
+    text-wrap: balance;
+  }
+  .title--xl {
+    font-size: clamp(32px, 5vw, 60px);
+  }
+  .title--lg {
+    font-size: clamp(26px, 3.4vw, 42px);
+    margin-bottom: 12px;
+  }
+  .title--md {
+    font-size: clamp(22px, 2.4vw, 28px);
+    margin-bottom: 22px;
+  }
+  .title :global(em) {
+    font-style: normal;
+    color: var(--px-accent);
+  }
+  .title :global(em.pink) {
+    color: var(--px-pink);
+  }
+  .title :global(em.orange) {
+    color: var(--px-orange);
+  }
+  .title :global(em.sky) {
+    color: var(--px-sky);
+  }
+</style>
