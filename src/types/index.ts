@@ -21,6 +21,11 @@ export interface SiteConfig {
   locale: string;
   email: string;
   whatsapp?: string;
+  /**
+   * Endpoint opcional para o formulário de orçamento (ex.: Formspree).
+   * Sem ele, o formulário abre o e-mail do visitante já preenchido.
+   */
+  formEndpoint?: string;
   /** Faixa de aviso no topo. Deixe `undefined` para esconder. */
   announcement?: { text: string; highlight?: string };
   nav: NavLink[];
@@ -51,18 +56,6 @@ export interface ProcessStep {
   label: string;
   title: string;
   description: string;
-}
-
-export interface EngagementModel {
-  name: string;
-  subtitle: string;
-  /** Proporção da largura no grid (como as "salas" 7/9/13 do original). */
-  size: number;
-  idealFor: string;
-  details: string;
-  items: string[];
-  cta: { label: string; href: string };
-  featured?: string;
 }
 
 export interface FaqItem {
