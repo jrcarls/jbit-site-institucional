@@ -1,9 +1,9 @@
 import type { Stat } from '../types';
 
-// TODO: substitua pelos números reais da empresa.
+/** Números do topo da página. Use só dados verdadeiros. */
 export const stats: Stat[] = [
-  { value: '40+', label: 'projetos entregues', color: 'accent' },
-  { value: '25', label: 'clientes ativos', color: 'pink' },
-  { value: '6', label: 'anos de mercado', color: 'orange' },
-  { value: '24h', label: 'tempo de resposta', color: 'sky' },
+  { value: '7', label: 'projetos desenvolvidos', color: 'accent' },
+  { value: '100%', label: 'remoto', color: 'pink' },
+  { value: '24h', label: 'tempo de resposta', color: 'orange' },
+  { value: '30 dias', label: 'de garantia', color: 'sky' },
 ];
